@@ -23,7 +23,7 @@ export default function App() {
                 item: ['text-sm', 'data-[active]:text-secondary'],
             }}>
             <NavbarContent className="hidden sm:flex pr-3" justify="start">
-                <NavbarBrand>
+                <NavbarBrand as={Link} href={'/'}>
                     <Image src={Logo} alt="log" width={70} height={20} />
                 </NavbarBrand>
             </NavbarContent>
@@ -63,7 +63,7 @@ export default function App() {
             {/* mobile menu section start  */}
 
             <NavbarContent className="sm:hidden" justify="start">
-                <NavbarBrand>
+                <NavbarBrand as={Link} href={'/'}>
                     <Image src={Logo} alt="logo" width={70} height={20} />
                 </NavbarBrand>
             </NavbarContent>
