@@ -1,7 +1,12 @@
+import { Card } from '@nextui-org/react';
 import React from 'react';
 
 const LoginPage = () => {
-    return <div>LoginPage</div>;
+    return (
+        <div>
+            <h2>Login page</h2>
+        </div>
+    );
 };
 
 export default LoginPage;

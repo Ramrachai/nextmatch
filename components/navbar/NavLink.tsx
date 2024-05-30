@@ -7,12 +7,17 @@ import React from 'react';
 type Props = {
     href: string;
     label: string;
+    className?: string;
 };
 
-const NavLink = ({ href, label }: Props) => {
+const NavLink = ({ href, label, className }: Props) => {
     const pathname = usePathname();
     return (
-        <NavbarItem as={Link} href={href} isActive={pathname === href}>
+        <NavbarItem
+            as={Link}
+            href={href}
+            isActive={pathname === href}
+            className={`${className}`}>
             {label}
         </NavbarItem>
     );

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import NextuiProvider from '@/components/NextuiProvider';
 import Topnav from '@/components/navbar/Topnav';
+import ResponsiveNav from '../components/navbar/ResponsiveNav';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +20,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Topnav />
                 <NextuiProvider>
+                    <ResponsiveNav />
                     <main className="container mx-auto p-10">{children}</main>
                 </NextuiProvider>
             </body>

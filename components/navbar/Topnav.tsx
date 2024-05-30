@@ -24,6 +24,7 @@ export default function Topnav() {
                         'uppercase',
                         'text-sm',
                         'data-[active]:text-emerald-600',
+                        'data-[active]:font-normal',
                     ],
                 }}>
                 <NavbarBrand as={Link} href={'/'}>
