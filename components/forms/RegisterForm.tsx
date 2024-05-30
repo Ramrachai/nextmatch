@@ -11,11 +11,11 @@ import {
 import logo from '../../assets/images/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaEnvelope, FaFacebook } from 'react-icons/fa';
+import { FaEnvelope, FaFacebook, FaPhone, FaUser } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import PasswordInput from './shared/PasswordInput';
 
-export default function LoginForm() {
+export default function RegisterForm() {
     return (
         <Card
             className="max-w-[500px] mx-auto px-3 py-4"
@@ -28,23 +28,35 @@ export default function LoginForm() {
             }}>
             <CardHeader className="flex justify-center gap-3">
                 <Image alt="logo" height={50} src={logo} width={50} />
-                <p className="text-md">Log in to your account</p>
+                <p className="text-md">Create New Accountt</p>
             </CardHeader>
             <Divider />
             <CardBody className="mt-4">
                 <Input
-                    startContent={<FaEnvelope color="#666" />}
+                    type="text"
+                    placeholder="Full name"
+                    size="md"
+                    startContent={<FaUser color="#666" />}
+                />
+                <Input
+                    type="text"
+                    placeholder="Mobile"
+                    size="md"
+                    startContent={<FaPhone color="#666" />}
+                />
+                <Input
                     type="email"
                     placeholder="Email"
                     size="md"
+                    startContent={<FaEnvelope color="#666" />}
                 />
                 <PasswordInput size="md" />
                 <Button color="secondary" fullWidth>
-                    Login
+                    Register
                 </Button>
 
                 <div className="text-sm flex items-center justify-center gap-3">
-                    <span>Login with: </span>
+                    <span>Register with: </span>
                     <Button
                         variant="ghost"
                         isIconOnly
@@ -63,11 +75,8 @@ export default function LoginForm() {
                 </div>
             </CardBody>
             <CardFooter>
-                <Link href="#" className="underline text-sm">
-                    Forgot Passowrd?
-                </Link>
-                <Link href={'/register'} className="underline text-sm">
-                    {"Don't"} have an account ?
+                <Link href={'/login'} className="underline text-sm">
+                    Already have an account ?
                 </Link>
             </CardFooter>
         </Card>
