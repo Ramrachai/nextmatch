@@ -8,8 +8,6 @@ import {
     Input,
     Button,
 } from '@nextui-org/react';
-import logo from '../../assets/images/logo.png';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaEnvelope, FaFacebook, FaPhone, FaUser } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
@@ -27,7 +25,6 @@ export default function RegisterForm() {
                 footer: ['flex-wrap', 'gap-3', 'justify-between'],
             }}>
             <CardHeader className="flex justify-center gap-3">
-                <Image alt="logo" height={50} src={logo} width={50} />
                 <p className="text-md">Create New Accountt</p>
             </CardHeader>
             <Divider />

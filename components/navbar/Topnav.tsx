@@ -10,9 +10,8 @@ import {
     Link,
     Button,
 } from '@nextui-org/react';
-import logoImg from '../../assets/images/logo.png';
-import Image from 'next/image';
 import NavLink from './NavLink';
+import Logo from '../Logo';
 export default function Topnav() {
     return (
         <>
@@ -28,7 +27,7 @@ export default function Topnav() {
                     ],
                 }}>
                 <NavbarBrand as={Link} href={'/'}>
-                    <Image src={logoImg} height={20} width={60} alt="logo" />
+                    <Logo />
                     <span className="text-teal-600 ml-2 uppercase text-sm">
                         Life
                     </span>

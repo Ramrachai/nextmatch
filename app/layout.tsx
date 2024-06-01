@@ -8,8 +8,9 @@ import ResponsiveNav from '../components/navbar/ResponsiveNav';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'Nextmatch',
-    description: 'Matching platform using MERN stack',
+    title: 'Jumene',
+    description:
+        'An Ecommerce platform for smart enterprenuers based in khagrachari, Bangladesh',
 };
 
 export default function RootLayout({

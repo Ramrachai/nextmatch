@@ -8,12 +8,11 @@ import {
     Input,
     Button,
 } from '@nextui-org/react';
-import logo from '../../assets/images/logo.png';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaEnvelope, FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import PasswordInput from './shared/PasswordInput';
+import Logo from '../Logo';
 
 export default function LoginForm() {
     return (
@@ -26,8 +25,8 @@ export default function LoginForm() {
                 body: ['gap-4'],
                 footer: ['flex-wrap', 'gap-3', 'justify-between'],
             }}>
-            <CardHeader className="flex justify-center gap-3">
-                <Image alt="logo" height={50} src={logo} width={50} />
+            <CardHeader className="flex justify-center gap-3 items-center flex-col">
+                <Logo color="black" className="block" />
                 <p className="text-md">Log in to your account</p>
             </CardHeader>
             <Divider />
@@ -43,22 +42,20 @@ export default function LoginForm() {
                     Login
                 </Button>
 
-                <div className="text-sm flex items-center justify-center gap-3">
+                <div className="mt-3 text-sm flex items-center justify-center gap-3">
                     <span>Login with: </span>
                     <Button
-                        variant="ghost"
                         isIconOnly
                         aria-label="login with google"
-                        className="flex-1 border-red-400">
+                        color="secondary">
                         <FcGoogle size={26} />
                     </Button>
 
                     <Button
-                        variant="ghost"
                         isIconOnly
                         aria-label="login with facebook"
-                        className="flex-1 border-blue-500">
-                        <FaFacebook color="#0866ff" size={26} />
+                        color="secondary">
+                        <FaFacebook size={26} />
                     </Button>
                 </div>
             </CardBody>

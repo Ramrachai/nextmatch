@@ -9,10 +9,10 @@ import {
     NavbarItem,
     Button,
 } from '@nextui-org/react';
-import Logo from '../../assets/images/logo.png';
-import Image from 'next/image';
+
 import NavLink from './NavLink';
 import Link from 'next/link';
+import Logo from '../Logo';
 
 export default function App() {
     return (
@@ -24,7 +24,7 @@ export default function App() {
             }}>
             <NavbarContent className="hidden sm:flex pr-3" justify="start">
                 <NavbarBrand as={Link} href={'/'}>
-                    <Image src={Logo} alt="log" width={70} height={20} />
+                    <Logo />
                 </NavbarBrand>
             </NavbarContent>
 
@@ -64,7 +64,7 @@ export default function App() {
 
             <NavbarContent className="sm:hidden" justify="start">
                 <NavbarBrand as={Link} href={'/'}>
-                    <Image src={Logo} alt="logo" width={70} height={20} />
+                    <Logo />
                 </NavbarBrand>
             </NavbarContent>
 
