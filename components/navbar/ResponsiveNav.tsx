@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import {
     Navbar,
     NavbarBrand,
@@ -14,11 +15,15 @@ import NavLink from './NavLink';
 import Link from 'next/link';
 import Logo from '../Logo';
 
-export default function App() {
+const ResponsiveNav: React.FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <Navbar
             disableAnimation
             isBordered
+            isMenuOpen={isMenuOpen}
+            onMenuOpenChange={setIsMenuOpen}
             classNames={{
                 item: ['text-sm', 'data-[active]:text-secondary'],
             }}>
@@ -73,9 +78,21 @@ export default function App() {
             </NavbarContent>
 
             <NavbarMenu className="items-center">
-                <NavLink href="/members" label="Matches" />
-                <NavLink href="/lists" label="Lists" />
-                <NavLink href="/messages" label="messages" />
+                <NavLink
+                    href="/members"
+                    label="Matches"
+                    onClick={() => setIsMenuOpen(false)}
+                />
+                <NavLink
+                    href="/lists"
+                    label="Lists"
+                    onClick={() => setIsMenuOpen(false)}
+                />
+                <NavLink
+                    href="/messages"
+                    label="messages"
+                    onClick={() => setIsMenuOpen(false)}
+                />
 
                 <Button
                     as={Link}
@@ -83,6 +100,7 @@ export default function App() {
                     color="secondary"
                     size="sm"
                     variant="flat"
+                    onClick={() => setIsMenuOpen(false)}
                     className="w-max">
                     Login
                 </Button>
@@ -93,10 +111,13 @@ export default function App() {
                     color="secondary"
                     variant="bordered"
                     size="sm"
+                    onClick={() => setIsMenuOpen(false)}
                     className="w-max">
                     Register
                 </Button>
             </NavbarMenu>
         </Navbar>
     );
-}
+};
+
+export default ResponsiveNav;

@@ -2,9 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import NextuiProvider from '@/components/NextuiProvider';
-import Topnav from '@/components/navbar/Topnav';
 import ResponsiveNav from '../components/navbar/ResponsiveNav';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

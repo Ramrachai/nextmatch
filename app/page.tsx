@@ -6,7 +6,7 @@ import { FaSmile } from 'react-icons/fa';
 export default function Home() {
     return (
         <main>
-            <h2>Hello Next match</h2>
+            <h2>Hello from jumene</h2>
             <h1>This is home page</h1>
             <Button
                 as={Link}
