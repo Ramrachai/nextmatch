@@ -19,7 +19,11 @@ import { FaPhone, FaUser } from 'react-icons/fa';
 import Logo from '../Logo';
 
 const RegisterForm: React.FC = () => {
-    const { register, handleSubmit } = useForm();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
     const onSubmit = async (data: any) => {
         console.log(data);
     };
@@ -36,17 +40,34 @@ const RegisterForm: React.FC = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col gap-4">
                     <Input
-                        {...register('name')}
+                        {...register('name', {
+                            required: 'Required',
+                            minLength: {
+                                value: 3,
+                                message:
+                                    'Name must be at least 3 characters long',
+                            },
+                        })}
                         placeholder="Full name"
                         startContent={<FaUser color="#666" />}
+                        isInvalid={!!errors.name}
+                        errorMessage={errors.name?.message as string}
                     />
                     <Input
-                        {...register('mobile')}
+                        {...register('mobile', {
+                            required: 'Required',
+                            pattern: {
+                                value: /^(017|016|013|016|014|018|019|015)\d{8}$/,
+                                message: 'Invalid Mobile Number',
+                            },
+                        })}
                         placeholder="Mobile Number"
                         startContent={<FaPhone color="#666" />}
+                        isInvalid={!!errors.mobile}
+                        errorMessage={errors.mobile?.message as string}
                     />
-                    <EmailField register={register} />
-                    <PasswordField register={register} />
+                    <EmailField register={register} errors={errors} />
+                    <PasswordField register={register} errors={errors} />
                     <Button color="secondary" fullWidth type="submit">
                         Register
                     </Button>

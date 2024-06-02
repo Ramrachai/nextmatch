@@ -17,7 +17,11 @@ import EmailField from './shared/EmailField';
 import SocialLogin from './shared/SocialLogin';
 
 const LoginForm: React.FC = () => {
-    const { register, handleSubmit } = useForm();
+    const {
+        register,
+        handleSubmit,
+        formState: { isValid, errors },
+    } = useForm();
 
     const onSubmit = async (data: any) => {
         console.log(data);
@@ -44,8 +48,8 @@ const LoginForm: React.FC = () => {
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex gap-4 flex-col">
-                    <EmailField register={register} />
-                    <PasswordField register={register} />
+                    <EmailField register={register} errors={errors} />
+                    <PasswordField register={register} errors={errors} />
                     <Button color="secondary" type="submit" fullWidth>
                         Login
                     </Button>
