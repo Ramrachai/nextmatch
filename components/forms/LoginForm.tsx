@@ -16,14 +16,21 @@ import PasswordField from './shared/PasswordField';
 import EmailField from './shared/EmailField';
 import SocialLogin from './shared/SocialLogin';
 
+interface FormType {
+    email: string;
+    password: string;
+}
+
 const LoginForm: React.FC = () => {
     const {
         register,
         handleSubmit,
-        formState: { isValid, errors },
-    } = useForm();
+        formState: { errors },
+    } = useForm<FormType>({
+        mode: 'onTouched',
+    });
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: FormType) => {
         console.log(data);
     };
 

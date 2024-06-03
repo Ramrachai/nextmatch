@@ -10,7 +10,7 @@ import {
     Input,
 } from '@nextui-org/react';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import EmailField from './shared/EmailField';
 import PasswordField from './shared/PasswordField';
 import Link from 'next/link';
@@ -18,13 +18,23 @@ import SocialLogin from './shared/SocialLogin';
 import { FaPhone, FaUser } from 'react-icons/fa';
 import Logo from '../Logo';
 
+interface FormType {
+    name: string;
+    mobile: number;
+    email: string;
+    password: string;
+}
+
 const RegisterForm: React.FC = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
-    const onSubmit = async (data: any) => {
+    } = useForm<FormType>({
+        mode: 'onTouched',
+    });
+
+    const onSubmit: SubmitHandler<FormType> = async (data) => {
         console.log(data);
     };
 
@@ -47,7 +57,14 @@ const RegisterForm: React.FC = () => {
                                 message:
                                     'Name must be at least 3 characters long',
                             },
+                            pattern: {
+                                value: /^[a-zA-Z]+(?:[-' ][a-zA-Z]+)*$/,
+                                message:
+                                    'Name must contain only letters and spaces',
+                            },
+                            setValueAs: (value) => value.trim(),
                         })}
+                        type="text"
                         placeholder="Full name"
                         startContent={<FaUser color="#666" />}
                         isInvalid={!!errors.name}
@@ -61,6 +78,7 @@ const RegisterForm: React.FC = () => {
                                 message: 'Invalid Mobile Number',
                             },
                         })}
+                        type="number"
                         placeholder="Mobile Number"
                         startContent={<FaPhone color="#666" />}
                         isInvalid={!!errors.mobile}
